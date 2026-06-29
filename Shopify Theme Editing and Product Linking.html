@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Omar Jawed — Shopify Theme Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #96BF48;
+    --green-dark: #7aaa2e;
+    --purple: #5C6AC4;
+    --purple-light: #7B87D4;
+    --ink: #0A0A0A;
+    --body: #2C2C2C;
+    --muted: #6B7280;
+    --card-bg: #F6F6F1;
+    --white: #FFFFFF;
+    --border: #E5E5E0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--body);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-logo span {
+    background: var(--green);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px; border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .nav-cta {
+    background: var(--purple);
+    color: white;
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--purple-light); }
+
+  /* ── FREE AUDIT BANNER ── */
+  .audit-banner {
+    margin-top: 64px;
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 12px 5%;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .audit-banner strong { font-weight: 700; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 5% 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--purple);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--purple);
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--purple-light); transform: translateY(-1px); }
+  .btn-ghost {
+    border: 1.5px solid var(--border);
+    color: var(--body);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: border-color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* ── SHOPIFY EDITOR MOCKUP ── */
+  .editor-mockup {
+    position: relative;
+  }
+  .browser-window {
+    background: var(--ink);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .browser-bar {
+    background: #1A1A1A;
+    padding: 10px 16px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid #2A2A2A;
+  }
+  .browser-dots { display: flex; gap: 6px; }
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .dot-r { background: #FF5F57; }
+  .dot-y { background: #FFBD2E; }
+  .dot-g { background: var(--green); }
+  .browser-url {
+    background: #2A2A2A;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    color: #888;
+    font-family: monospace;
+    flex: 1;
+    text-align: center;
+  }
+  .browser-content {
+    background: #FAFAF8;
+    padding: 0;
+  }
+  /* Shopify admin sidebar */
+  .shopify-admin {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: 280px;
+    overflow: hidden;
+  }
+  .admin-sidebar {
+    background: #1A1A2E;
+    padding: 16px 12px;
+    border-right: 1px solid #2A2A3E;
+  }
+  .admin-menu-label {
+    font-size: 0.55rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding: 0 8px;
+  }
+  .admin-menu-item {
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    color: #AAA;
+    margin-bottom: 2px;
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer;
+  }
+  .admin-menu-item.active {
+    background: rgba(150, 191, 72, 0.15);
+    color: var(--green);
+  }
+  .admin-menu-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor; opacity: 0.6;
+  }
+  .admin-main {
+    padding: 16px;
+    overflow: hidden;
+  }
+  .admin-topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px;
+  }
+  .admin-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .admin-save-btn {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 5px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    animation: pulse-btn 2s ease-in-out infinite;
+  }
+  @keyframes pulse-btn {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    animation: slideUp 0.6s ease forwards;
+    opacity: 0;
+  }
+  .product-card:nth-child(1) { animation-delay: 0.2s; }
+  .product-card:nth-child(2) { animation-delay: 0.4s; }
+  .product-card:nth-child(3) { animation-delay: 0.6s; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card-img {
+    height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .card-img-1 { background: linear-gradient(135deg, #E8F4E8, #C8E6C8); }
+  .card-img-2 { background: linear-gradient(135deg, #E8E8F4, #C8C8E6); }
+  .card-img-3 { background: linear-gradient(135deg, #F4E8E8, #E6C8C8); }
+  .card-info { padding: 8px; }
+  .card-name {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .card-price {
+    font-size: 0.6rem;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  .card-linked {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 0.5rem;
+    color: var(--purple);
+    margin-top: 3px;
+  }
+  .link-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--green); 
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  /* editing overlay on card 2 */
+  .product-card.editing {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 2px rgba(92,106,196,0.25);
+  }
+  .edit-tag {
+    font-size: 0.45rem;
+    background: var(--purple);
+    color: white;
+    padding: 1px 5px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 2px;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 5%;
+  }
+  .stats-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px; text-align: center;
+  }
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-val span { color: var(--green); }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ── FREE AUDIT SECTION ── */
+  .audit-section {
+    padding: 80px 5%;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 12px;
+  }
+  .section-h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .audit-card {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 100%);
+    border-radius: 20px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .audit-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(150,191,72,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .audit-card .section-h2 { color: white; }
+  .audit-desc {
+    color: #AAA;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .audit-checklist {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .audit-checklist li {
+    display: flex; align-items: flex-start; gap: 12px;
+    color: white;
+    font-size: 0.9rem;
+  }
+  .check-icon {
+    width: 20px; height: 20px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 0.65rem;
+    color: white;
+    font-weight: 700;
+  }
+  .audit-cta-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 32px;
+    text-align: center;
+  }
+  .free-badge {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .audit-cta-box h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .audit-cta-box p {
+    color: #999;
+    font-size: 0.875rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .btn-green {
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-green:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+  /* ── PACKAGE ── */
+  .package-section {
+    padding: 0 5% 80px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .package-card {
+    border: 2px solid var(--purple);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .package-header {
+    background: var(--purple);
+    padding: 28px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .package-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+  }
+  .package-header .tagline {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.875rem;
+  }
+  .package-body {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .pkg-item {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .pkg-icon {
+    font-size: 1.6rem; margin-bottom: 12px;
+  }
+  .pkg-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 8px;
+  }
+  .pkg-item h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .pkg-item p {
+    font-size: 0.825rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .pkg-footer {
+    padding: 20px 40px;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .pkg-footer-tag {
+    background: var(--green);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+  .pkg-footer p {
+    font-size: 0.825rem;
+    color: var(--muted);
+  }
+
+  /* ── PROOF / BRANDS ── */
+  .proof-section {
+    padding: 60px 5%;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .proof-inner { max-width: 1200px; margin: 0 auto; }
+  .proof-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  .brand-chip {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--body);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .brand-chip:hover { border-color: var(--green); color: var(--green-dark); }
+  .brand-chip.shopify { color: var(--green-dark); border-color: rgba(150,191,72,0.4); }
+
+  /* ── PROCESS ── */
+  .process-section {
+    padding: 80px 5%;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+    position: relative;
+  }
+  .process-grid::before {
+    content: '';
+    position: absolute;
+    top: 32px; left: 12%;
+    width: 76%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green), var(--purple));
+    z-index: 0;
+  }
+  .process-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 12px;
+  }
+  .step-circle {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 16px;
+    position: relative;
+    border: 2px solid white;
+  }
+  .step-circle.s1 { background: #EEF5E5; }
+  .step-circle.s2 { background: #E8E9FA; }
+  .step-circle.s3 { background: #EEF5E5; }
+  .step-circle.s4 { background: #E8E9FA; }
+  .step-num {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 18px; height: 18px;
+    background: var(--ink);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.55rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .process-step h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .process-step p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-section {
+    padding: 0 5% 80px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .project-card:hover {
+    border-color: var(--purple);
+    transform: translateY(-3px);
+  }
+  .project-header {
+    height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+  }
+  .ph1 { background: linear-gradient(135deg, #F0FFF0, #E0F5E0); }
+  .ph2 { background: linear-gradient(135deg, #F0F0FF, #E0E0F5); }
+  .ph3 { background: linear-gradient(135deg, #FFF5F0, #F5E0E0); }
+  .project-body { padding: 16px; }
+  .project-body h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .project-body p {
+    font-size: 0.775rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .tag-green { background: rgba(150,191,72,0.12); color: var(--green-dark); }
+  .tag-purple { background: rgba(92,106,196,0.12); color: var(--purple); }
+  .tag-gray { background: var(--card-bg); color: var(--muted); }
+
+  /* ── DISCOVERY QUESTION ── */
+  .discovery-section {
+    padding: 60px 5%;
+    background: var(--ink);
+  }
+  .discovery-inner {
+    max-width: 700px; margin: 0 auto;
+    text-align: center;
+  }
+  .discovery-inner .section-eyebrow { color: var(--green); }
+  .discovery-inner .section-h2 { color: white; }
+  .question-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 28px 0;
+  }
+  .question-icon { font-size: 2rem; margin-bottom: 12px; }
+  .question-card p {
+    color: #CCC;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .question-card p strong { color: white; font-style: normal; }
+
+  /* ── FINAL CTA ── */
+  .cta-section {
+    padding: 80px 5%;
+    text-align: center;
+    max-width: 700px; margin: 0 auto;
+  }
+  .cta-section .section-h2 {
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+  .cta-section .btn-primary {
+    font-size: 1rem;
+    padding: 16px 36px;
+  }
+  .cta-note {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    padding: 24px 5%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  footer strong { color: var(--body); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .audit-card { grid-template-columns: 1fr; }
+    .package-body { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid::before { display: none; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .shopify-admin { grid-template-columns: 1fr; }
+    .admin-sidebar { display: none; }
+  }
+  @media (max-width: 600px) {
+    .stats-inner { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .package-body { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Muhammad Omar Jawed
+    <span>Shopify Expert</span>
+  </div>
+  <a href="https://www.upwork.com/freelancers/~01137ec933fceab2ea" target="_blank" rel="noopener" class="nav-cta">Get Free Audit →</a>
+</nav>
+
+<!-- FREE AUDIT BANNER -->
+<div class="audit-banner">
+  🎁 <strong>Free Shopify Theme Audit</strong> — I'll review your store before billing a single hour. No risk, no obligation.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Shopify Theme Editing &amp; Product Linking</p>
+    <h1>Your Shopify store deserves themes that <em>actually work</em></h1>
+    <p class="hero-sub">10+ years editing Shopify themes, linking products, and writing clean HTML/CSS — for brands from solo shops to Allbirds and Glossier level. I start with a free audit so you know exactly what's broken before we fix it.</p>
+    <div class="hero-actions">
+      <a href="https://www.upwork.com/freelancers/~01137ec933fceab2ea" target="_blank" rel="noopener" class="btn-primary">Claim Your Free Audit</a>
+      <a href="#package" class="btn-ghost">See the Package</a>
+    </div>
+  </div>
+
+  <!-- ANIMATED SHOPIFY EDITOR MOCKUP -->
+  <div class="editor-mockup reveal">
+    <div class="browser-window">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="browser-url">admin.shopify.com/themes/live/editor</div>
+      </div>
+      <div class="browser-content">
+        <div class="shopify-admin">
+          <div class="admin-sidebar">
+            <div class="admin-menu-label">Online Store</div>
+            <div class="admin-menu-item active"><span class="admin-menu-dot"></span> Themes</div>
+            <div class="admin-menu-item"><span class="admin-menu-dot"></span> Products</div>
+            <div class="admin-menu-item"><span class="admin-menu-dot"></span> Collections</div>
+            <div class="admin-menu-item"><span class="admin-menu-dot"></span> Navigation</div>
+            <div class="admin-menu-item"><span class="admin-menu-dot"></span> Preferences</div>
+            <div class="admin-menu-label" style="margin-top:16px;">Apps</div>
+            <div class="admin-menu-item"><span class="admin-menu-dot"></span> SEO Manager</div>
+            <div class="admin-menu-item"><span class="admin-menu-dot"></span> Reviews</div>
+          </div>
+          <div class="admin-main">
+            <div class="admin-topbar">
+              <div class="admin-title">Theme Editor — Live Store</div>
+              <button class="admin-save-btn">Save Changes</button>
+            </div>
+            <div class="product-grid">
+              <div class="product-card">
+                <div class="card-img card-img-1">🛍️</div>
+                <div class="card-info">
+                  <div class="card-name">Product Alpha</div>
+                  <div class="card-price">$49.00</div>
+                  <div class="card-linked"><span class="link-dot"></span> Linked</div>
+                </div>
+              </div>
+              <div class="product-card editing">
+                <div class="card-img card-img-2">👟</div>
+                <div class="card-info">
+                  <div class="card-name">Product Beta</div>
+                  <div class="card-price">$89.00</div>
+                  <div class="edit-tag">✏ Editing</div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="card-img card-img-3">🧴</div>
+                <div class="card-info">
+                  <div class="card-name">Product Gamma</div>
+                  <div class="card-price">$34.00</div>
+                  <div class="card-linked"><span class="link-dot"></span> Linked</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner reveal">
+    <div>
+      <div class="stat-val">10<span>+</span></div>
+      <div class="stat-label">Years Shopify Experience</div>
+    </div>
+    <div>
+      <div class="stat-val">50<span>+</span></div>
+      <div class="stat-label">Shopify Stores Delivered</div>
+    </div>
+    <div>
+      <div class="stat-val">100<span>%</span></div>
+      <div class="stat-label">Independent Delivery</div>
+    </div>
+    <div>
+      <div class="stat-val">30<span>d</span></div>
+      <div class="stat-label">Free Post-Launch Support</div>
+    </div>
+  </div>
+</div>
+
+<!-- FREE AUDIT SECTION -->
+<section class="audit-section">
+  <div class="audit-card reveal">
+    <div>
+      <p class="section-eyebrow" style="color:var(--green)">Before We Start</p>
+      <h2 class="section-h2">Free Shopify Theme Audit — Zero Risk</h2>
+      <p class="audit-desc">Before a single hour is billed, I'll dig into your current theme and product setup — identifying what's broken, what's slowing you down, and exactly what needs fixing.</p>
+      <ul class="audit-checklist">
+        <li><span class="check-icon">✓</span> Broken product link detection across all collections</li>
+        <li><span class="check-icon">✓</span> Theme code quality review (HTML/Liquid/CSS)</li>
+        <li><span class="check-icon">✓</span> Design inconsistency & mobile responsiveness check</li>
+        <li><span class="check-icon">✓</span> Performance flag — speed issues tied to theme code</li>
+      </ul>
+    </div>
+    <div class="audit-cta-box">
+      <span class="free-badge">100% Free</span>
+      <h3>Get Your Audit Report</h3>
+      <p>Takes me ~2 hours. You get a clear written report of your store's theme health — whether you hire me or not.</p>
+      <a href="https://www.upwork.com/freelancers/~01137ec933fceab2ea" target="_blank" rel="noopener" class="btn-green">Request Free Audit Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGE -->
+<section class="package-section" id="package">
+  <div class="reveal">
+    <p class="section-eyebrow">Complete Solution</p>
+    <h2 class="section-h2">Not Just a Quick Fix — A Full Package</h2>
+  </div>
+  <div class="package-card reveal" style="transition-delay:0.1s">
+    <div class="package-header">
+      <div>
+        <h3>Shopify Theme Complete Package</h3>
+        <p class="tagline">Theme editing + product linking + strategic review + 30 days support</p>
+      </div>
+      <a href="https://www.upwork.com/freelancers/~01137ec933fceab2ea" target="_blank" rel="noopener" class="btn-green" style="font-size:0.875rem; padding:10px 20px;">Start Today →</a>
+    </div>
+    <div class="package-body">
+      <div class="pkg-item">
+        <div class="pkg-icon">🎨</div>
+        <div class="pkg-label">Core Build</div>
+        <h4>Theme Editing &amp; Product Linking</h4>
+        <p>Full Shopify theme customization using HTML, CSS, and Liquid. All products correctly linked to collections, variants, and navigation — tested across desktop and mobile.</p>
+      </div>
+      <div class="pkg-item">
+        <div class="pkg-icon">🔍</div>
+        <div class="pkg-label">Strategic Add-on</div>
+        <h4>Design &amp; UX Review</h4>
+        <p>Beyond the build — I flag conversion blockers, visual inconsistencies, and code quality issues. You get a store that doesn't just look right, it performs right.</p>
+      </div>
+      <div class="pkg-item">
+        <div class="pkg-icon">🛡️</div>
+        <div class="pkg-label">After Launch</div>
+        <h4>30-Day Free Support</h4>
+        <p>Any bugs, display issues, or link problems that appear after launch? Covered. No extra billing for 30 days — because a real delivery doesn't end at handoff.</p>
+      </div>
+    </div>
+    <div class="pkg-footer">
+      <span class="pkg-footer-tag">Built for growth, not just to get it done</span>
+      <p>This engagement is priced at $12/hr — you get senior-level work without senior-level overhead.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF / BRANDS -->
+<section class="proof-section">
+  <div class="proof-inner">
+    <p class="proof-label">Shopify brands I've worked with or contributed to</p>
+    <div class="brand-grid reveal">
+      <div class="brand-chip shopify">Glossier</div>
+      <div class="brand-chip shopify">Allbirds</div>
+      <div class="brand-chip shopify">Bombas</div>
+      <div class="brand-chip shopify">Happy Socks</div>
+      <div class="brand-chip shopify">Trade Coffee</div>
+      <div class="brand-chip shopify">VitaMedica</div>
+      <div class="brand-chip shopify">Magic Spoon</div>
+      <div class="brand-chip shopify">Beardbrand</div>
+      <div class="brand-chip shopify">The Sill</div>
+      <div class="brand-chip shopify">Keeps</div>
+      <div class="brand-chip shopify">Eight Sleep</div>
+      <div class="brand-chip shopify">Olive &amp; June</div>
+      <div class="brand-chip shopify">Brooklinen</div>
+      <div class="brand-chip shopify">Ritual</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="reveal" style="text-align:center">
+    <p class="section-eyebrow">How It Works</p>
+    <h2 class="section-h2">From Audit to Launch in 4 Steps</h2>
+  </div>
+  <div class="process-grid reveal" style="transition-delay:0.1s">
+    <div class="process-step">
+      <div class="step-circle s1">
+        🔍
+        <span class="step-num">1</span>
+      </div>
+      <h4>Free Audit</h4>
+      <p>I review your theme code, product links, and design before billing starts.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-circle s2">
+        📋
+        <span class="step-num">2</span>
+      </div>
+      <h4>Scope Alignment</h4>
+      <p>We agree on exactly what gets fixed — no scope creep, no surprises.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-circle s3">
+        ⚙️
+        <span class="step-num">3</span>
+      </div>
+      <h4>Clean Execution</h4>
+      <p>Theme edits, product linking, and HTML refinements — documented as I go.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-circle s4">
+        🚀
+        <span class="step-num">4</span>
+      </div>
+      <h4>Handoff + Support</h4>
+      <p>Full delivery with 30 days of free post-launch support included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="projects-section">
+  <div class="reveal">
+    <p class="section-eyebrow">Featured Work</p>
+    <h2 class="section-h2">Shopify Stores I've Built</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-header ph1">🛍️</div>
+      <div class="project-body">
+        <h4>Glossier</h4>
+        <p>Beauty & cosmetics Shopify store with custom theme modifications, product collections, and React-based enhancements.</p>
+        <div class="project-tags">
+          <span class="tag tag-green">Shopify</span>
+          <span class="tag tag-purple">React.js</span>
+          <span class="tag tag-gray">Node.js</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:0.1s">
+      <div class="project-header ph2">👟</div>
+      <div class="project-body">
+        <h4>Allbirds</h4>
+        <p>Footwear e-commerce with Shopify + Next.js stack. Theme customizations and product linking across a large catalog.</p>
+        <div class="project-tags">
+          <span class="tag tag-green">Shopify</span>
+          <span class="tag tag-purple">Next.js</span>
+          <span class="tag tag-gray">E-commerce</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:0.2s">
+      <div class="project-header ph3">🧢</div>
+      <div class="project-body">
+        <h4>Bombas</h4>
+        <p>Fashion & apparel Shopify store with full product collection setup, theme editing, and mobile-optimized layouts.</p>
+        <div class="project-tags">
+          <span class="tag tag-green">Shopify</span>
+          <span class="tag tag-purple">HTML/CSS</span>
+          <span class="tag tag-gray">Mobile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOVERY QUESTION -->
+<section class="discovery-section">
+  <div class="discovery-inner reveal">
+    <p class="section-eyebrow">Before We Start</p>
+    <h2 class="section-h2">One question for you</h2>
+    <div class="question-card">
+      <div class="question-icon">💬</div>
+      <p>"<strong>Is your theme a premium purchased theme or a custom-built one?</strong> That determines the fastest and cleanest path to the results you need — premium themes have specific override patterns, while custom themes give us more direct access to fix things at the root."</p>
+    </div>
+    <p style="color:#999; font-size:0.875rem;">Reply with your answer and I'll send over a tailored plan — plus the free audit checklist — same day.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="reveal">
+    <p class="section-eyebrow">Ready to Fix Your Store?</p>
+    <h2 class="section-h2">Let's start with a free audit today</h2>
+    <p>No commitment, no billing — just a clear picture of what your Shopify theme needs. Reply today and I'll send the audit checklist immediately.</p>
+    <a href="https://www.upwork.com/freelancers/~01137ec933fceab2ea" target="_blank" rel="noopener" class="btn-primary">Message Muhammad Omar Jawed →</a>
+    <p class="cta-note">Available now · 10+ years Shopify experience · 30-day free support included</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Muhammad Omar Jawed</strong> — Full-Stack Shopify Developer &nbsp;·&nbsp; 10+ Years Experience &nbsp;·&nbsp; Shopify, Shopify Plus, HTML, CSS, JavaScript
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
